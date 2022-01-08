@@ -64,8 +64,14 @@ class FacePictureActivity : AppCompatActivity() {
     }
 
     private fun initClickListener() {
-        mBinding.cameraCaptureButton.setOnClickListener { takePhoto() }
-        mBinding.cameraCaptureButton2.setOnClickListener { takePhoto() }
+        mBinding.cameraCaptureButton.setOnClickListener {
+//            takePhoto()
+            Toast.makeText(this, "123wfsdfsdf", Toast.LENGTH_SHORT).show()
+        }
+        mBinding.cameraCaptureButton2.setOnClickListener {
+//            takePhoto()
+            Toast.makeText(this, "123wfsdfsdf", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun startCamera() {
