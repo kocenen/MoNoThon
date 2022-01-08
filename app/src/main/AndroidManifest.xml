@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.monothon">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +10,24 @@
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
             android:name=".view.sms.MakeWoohanSMSActivity"
+        android:theme="@style/Theme.MonoThon">
+
+        <activity
+            android:name=".view.call.CallActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.example.monothon.view.intro.result.SunSafeActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.monothon.view.intro.result.SunBreakActivity"
+            android:exported="true" >
+
+        </activity>
+
+        <activity
+            android:name="com.example.monothon.view.intro.picture.FacePictureActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +43,13 @@
             android:exported="true" />
         <activity
             android:name=".view.intro.picture.FacePictureActivity"
+            android:name=".view.history.list.HistoryListActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".view.MainActivity"
             android:exported="true">
 
         </activity>

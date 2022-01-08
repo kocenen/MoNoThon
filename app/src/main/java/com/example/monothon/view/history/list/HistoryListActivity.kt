@@ -1,4 +1,4 @@
-package com.example.monothon.view.history
+package com.example.monothon.view.history.list
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
