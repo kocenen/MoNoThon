@@ -76,6 +76,7 @@ class CallActivity : AppCompatActivity() {
             clCallDecline.isVisible = false
             clAfterReceivingCall.isVisible = true
         }
+        vibrator.cancel()
         defaultRingtone.stop()
         mediaPlayer.start()
     }
