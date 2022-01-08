@@ -38,6 +38,7 @@ class MakeMarryActivity : AppCompatActivity() {
             sendIntent.putExtra("sms_body", binding.tvMessage.text.toString());
             startActivity(sendIntent)
         }
+
     }
 
 

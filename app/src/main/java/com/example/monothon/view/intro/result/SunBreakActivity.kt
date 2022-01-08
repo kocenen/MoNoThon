@@ -6,17 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.monothon.R
 import com.example.monothon.databinding.ActivitySunBreakBinding
+import java.io.File
 
 class SunBreakActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivitySunBreakBinding
 
     private var selectReason = -1
-
+    private lateinit var file : File
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sun_break)
-
+        file = intent.getSerializableExtra("imageFile") as File
         initBinding()
         initClickListener()
     }
