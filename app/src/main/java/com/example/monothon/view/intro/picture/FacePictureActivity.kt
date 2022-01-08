@@ -1,6 +1,7 @@
 package com.example.monothon.view.intro.picture
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -13,13 +14,17 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.monothon.R
 import com.example.monothon.api.NaverAPI
 import com.example.monothon.api.NaverAPIRes
+import com.example.monothon.api.model.Face
 import com.example.monothon.databinding.ActivityFacePictureBinding
-import com.example.monothon.view.history.HistoryListActivity
+import com.example.monothon.view.history.list.HistoryListActivity
 import com.example.monothon.util.NaverUtil
+import com.example.monothon.view.intro.result.SunBreakActivity
+import com.example.monothon.view.intro.result.SunSafeActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -70,15 +75,16 @@ class FacePictureActivity : AppCompatActivity() {
             historyButton.setOnClickListener {
                 startActivity(Intent(this@FacePictureActivity, HistoryListActivity::class.java))
             }
-
             historyButton2.setOnClickListener {
                 startActivity(Intent(this@FacePictureActivity, HistoryListActivity::class.java))
             }
 
             cameraCaptureButton.setOnClickListener {
+                mBinding.progressCamera.isVisible = true
                 takePhoto()
             }
             cameraCaptureButton2.setOnClickListener {
+                mBinding.progressCamera.isVisible = true
                 takePhoto()
             }
         }
@@ -120,7 +126,7 @@ class FacePictureActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val fileBody = RequestBody.create("image/jpg".toMediaTypeOrNull(), photoFile)
                     val filePart = MultipartBody.Part.createFormData("image", photoFile.name + ".jpg", fileBody)
-                    getUserFaceInfo(filePart)
+                    getUserFaceInfo(filePart, photoFile)
                 }
             }
         )
@@ -141,7 +147,7 @@ class FacePictureActivity : AppCompatActivity() {
         return file
     }
 
-    private fun getUserFaceInfo(imageFile: MultipartBody.Part) {
+    private fun getUserFaceInfo(imageFilePart: MultipartBody.Part, imageFile: File) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://openapi.naver.com/v1/vision/face/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -149,22 +155,45 @@ class FacePictureActivity : AppCompatActivity() {
 
         val server: NaverAPI = retrofit.create(NaverAPI::class.java)
 
-        server.naverCheckFace(NaverUtil.naverClientId, NaverUtil.naverClientSecret, imageFile).enqueue(object : Callback<NaverAPIRes> {
+        server.naverCheckFace(NaverUtil.naverClientId, NaverUtil.naverClientSecret, imageFilePart).enqueue(object : Callback<NaverAPIRes> {
                 override fun onFailure(call: Call<NaverAPIRes>?, t: Throwable?) {
+                    mBinding.progressCamera.isVisible = false
+
                     Toast.makeText(applicationContext, "얼굴_체크_실패", Toast.LENGTH_SHORT).show()
                     Log.e("네이버_얼굴_체크_실패실패: ", "$t")
                 }
 
                 override fun onResponse(call: Call<NaverAPIRes>?, response: Response<NaverAPIRes>?) {
+                    mBinding.progressCamera.isVisible = false
+
                     val resultBody = response?.body()
+                    Log.e("네이버_얼굴_체크_성공성공:", "$resultBody")
 
-
+                    if(!resultBody?.faces.isNullOrEmpty()) {
+                        checkUserFace(resultBody?.faces?.get(0)!!, imageFile)
+                    } else {
+                        startActivity(
+                            Intent(this@FacePictureActivity, SunSafeActivity::class.java)
+                                .putExtra("imageFile", imageFile)
+                        )
+                    }
                 }
             }
         )
     }
 
-    private fun checkUserFace() {
-
+    private fun checkUserFace(faceInfo: Face, imageFile: File) {
+        if(faceInfo.emotion.confidence >= 0.5) {
+            Log.e("네이버_얼굴_표정_체크", "${faceInfo.emotion.value}")
+            when(faceInfo.emotion.value) {
+                "angry" -> startActivity(Intent(this, SunBreakActivity::class.java))
+                "disgust" -> startActivity(Intent(this, SunBreakActivity::class.java))
+                "fear" -> startActivity(Intent(this, SunBreakActivity::class.java))
+                "sad" -> startActivity(Intent(this, SunBreakActivity::class.java))
+                else -> startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
+            }
+        } else {
+            startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
+        }
     }
 }
