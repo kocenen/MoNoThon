@@ -1,20 +1,16 @@
-package com.example.monothon
+package com.example.monothon.view.call
 
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
 import android.view.WindowManager
-import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.net.Uri
 import android.media.Ringtone
 import android.view.View
 import com.example.monothon.databinding.ActivityCallBinding
-import android.R
-import android.view.MotionEvent
 
-import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.animation.AccelerateInterpolator
 
 import android.view.animation.AlphaAnimation
@@ -58,9 +54,9 @@ class CallActivity : AppCompatActivity() {
 
     private fun initOnClick() {
         with(binding){
-            clCallDecline.setOnTouchListener { view, motionEvent ->
-
-            }
+//            clCallDecline.setOnTouchListener { view, motionEvent ->
+//
+//            }
         }
     }
 

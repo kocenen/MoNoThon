@@ -1,4 +1,4 @@
-package com.example.monothon.intro.result
+package com.example.monothon.view.intro.result
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

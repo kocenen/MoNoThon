@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.monothon.intro.picture.FacePictureViewModel" />
+            type="com.example.monothon.view.intro.picture.FacePictureViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".intro.picture.FacePictureActivity">
+    tools:context=".view.intro.picture.FacePictureActivity">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/viewFinder"

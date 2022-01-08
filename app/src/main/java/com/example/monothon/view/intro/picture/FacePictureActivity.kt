@@ -1,4 +1,4 @@
-package com.example.monothon.intro.picture
+package com.example.monothon.view.intro.picture
 
 import android.content.Intent
 import android.os.Bundle
@@ -18,7 +18,7 @@ import com.example.monothon.R
 import com.example.monothon.api.NaverAPI
 import com.example.monothon.api.NaverAPIRes
 import com.example.monothon.databinding.ActivityFacePictureBinding
-import com.example.monothon.history.HistoryListActivity
+import com.example.monothon.view.history.HistoryListActivity
 import com.example.monothon.util.NaverUtil
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -158,8 +158,7 @@ class FacePictureActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<NaverAPIRes>?, response: Response<NaverAPIRes>?) {
                     val resultBody = response?.body()
 
-                    Log.e("네이버_얼굴_체크_데이터_성공성공+info: ", "${resultBody?.info}")
-                    Log.e("네이버_얼굴_체크_데이터_성공성공+faces: ", "${resultBody?.faces}")
+
                 }
             }
         )

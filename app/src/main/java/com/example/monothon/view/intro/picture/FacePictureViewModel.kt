@@ -1,4 +1,4 @@
-package com.example.monothon.intro.picture
+package com.example.monothon.view.intro.picture
 
 import androidx.lifecycle.ViewModel
 

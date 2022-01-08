@@ -1,10 +1,8 @@
-package com.example.monothon
+package com.example.monothon.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Vibrator
-
-
+import com.example.monothon.R
 
 
 class MainActivity : AppCompatActivity() {
