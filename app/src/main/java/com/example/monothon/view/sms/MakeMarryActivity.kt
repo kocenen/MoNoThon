@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.TelephonyManager
 import com.example.monothon.databinding.ActivityMakeMarryBinding
+import com.example.monothon.view.intro.picture.FacePictureActivity
 
 class MakeMarryActivity : AppCompatActivity() {
 
@@ -36,7 +37,10 @@ class MakeMarryActivity : AppCompatActivity() {
             val smsUri = Uri.parse("sms:$phoneNumber");
             val sendIntent = Intent(Intent.ACTION_SENDTO, smsUri);
             sendIntent.putExtra("sms_body", binding.tvMessage.text.toString());
+            finishAffinity()
+            startActivity(Intent(this, FacePictureActivity::class.java))
             startActivity(sendIntent)
+
         }
     }
 

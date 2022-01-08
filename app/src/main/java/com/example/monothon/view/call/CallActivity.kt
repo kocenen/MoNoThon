@@ -1,5 +1,6 @@
 package com.example.monothon.view.call
 
+import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import androidx.core.view.isVisible
 import com.example.monothon.R
+import com.example.monothon.view.intro.picture.FacePictureActivity
 
 
 class CallActivity : AppCompatActivity() {
@@ -128,6 +130,8 @@ class CallActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         vibrator.cancel()
+        finishAffinity()
+        startActivity(Intent(this, FacePictureActivity::class.java))
     }
 
 }

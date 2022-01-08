@@ -16,8 +16,7 @@ import androidx.core.content.ContextCompat
 import com.example.monothon.databinding.ActivityMakeWoohanSmsactivityBinding
 import com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE
 import androidx.core.app.ActivityCompat.requestPermissions
-
-
+import com.example.monothon.view.intro.picture.FacePictureActivity
 
 
 class MakeWoohanSMSActivity : AppCompatActivity() {
@@ -48,7 +47,12 @@ class MakeWoohanSMSActivity : AppCompatActivity() {
             val smsUri = Uri.parse("sms:$phoneNumber");
             val sendIntent = Intent(Intent.ACTION_SENDTO, smsUri);
             sendIntent.putExtra("sms_body", binding.tvMessage.text.toString());
+
+
+            finishAffinity()
+            startActivity(Intent(this, FacePictureActivity::class.java))
             startActivity(sendIntent)
+
         }
     }
 
