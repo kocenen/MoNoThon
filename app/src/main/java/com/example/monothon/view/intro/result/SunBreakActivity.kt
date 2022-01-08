@@ -1,11 +1,15 @@
 package com.example.monothon.view.intro.result
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.monothon.R
 import com.example.monothon.databinding.ActivitySunBreakBinding
+import com.example.monothon.view.sms.MakeCallActivity
+import com.example.monothon.view.sms.MakeMarryActivity
+import com.example.monothon.view.sms.MakeWoohanSMSActivity
 
 class SunBreakActivity : AppCompatActivity() {
 
@@ -83,12 +87,22 @@ class SunBreakActivity : AppCompatActivity() {
 
             nextBtn.setOnClickListener {
                 if(selectReason != -1) {
-                    Toast.makeText(this@SunBreakActivity, "선택 !!!!", Toast.LENGTH_SHORT).show()
+                    when(selectReason) {
+                        1 -> startActivity(Intent(this@SunBreakActivity, MakeWoohanSMSActivity::class.java))
+                        2 -> startActivity(Intent(this@SunBreakActivity, MakeMarryActivity::class.java))
+                        3 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java))
+                        4 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java))
+                    }
                 }
             }
             nextBtnText.setOnClickListener {
                 if(selectReason != -1) {
-                    Toast.makeText(this@SunBreakActivity, "선택 !!!!", Toast.LENGTH_SHORT).show()
+                    when(selectReason) {
+                        1 -> startActivity(Intent(this@SunBreakActivity, MakeWoohanSMSActivity::class.java))
+                        2 -> startActivity(Intent(this@SunBreakActivity, MakeMarryActivity::class.java))
+                        3 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java))
+                        4 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java))
+                    }
                 }
             }
         }

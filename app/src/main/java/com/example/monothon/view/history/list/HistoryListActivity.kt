@@ -1,5 +1,6 @@
 package com.example.monothon.view.history.list
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -8,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import com.example.monothon.R
 import com.example.monothon.databinding.ActivityHistoryListBinding
 import com.example.monothon.repository.db.RoomDB
+import com.example.monothon.view.history.detail.HistoryDetailCrossedLineActivity
+import com.example.monothon.view.history.detail.HistoryDetailUncrossedLineActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +22,10 @@ class HistoryListActivity : AppCompatActivity() {
 
     private val adapter = HistoryListAdapter {
         Toast.makeText(this, "이용 내역 정보: $it", Toast.LENGTH_SHORT).show()
+        when(it.isBreak) {
+            true -> startActivity(Intent(this, HistoryDetailCrossedLineActivity::class.java))
+            false -> startActivity(Intent(this, HistoryDetailUncrossedLineActivity::class.java))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

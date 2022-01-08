@@ -1,4 +1,4 @@
-package com.example.monothon.view
+package com.example.monothon.view.sms
 
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
