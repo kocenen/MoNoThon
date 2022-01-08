@@ -10,7 +10,14 @@
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
             android:name=".view.sms.MakeWoohanSMSActivity"
-        android:theme="@style/Theme.MonoThon">
+            android:theme="@style/Theme.MonoThon"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".view.call.CallActivity"
@@ -29,20 +36,8 @@
         <activity
             android:name="com.example.monothon.view.intro.picture.FacePictureActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".view.call.CallActivity"
-            android:exported="true">
 
         </activity>
-        <activity
-            android:name=".view.intro.result.FaceResultActivity"
-            android:exported="true" />
         <activity
             android:name=".view.history.list.HistoryListActivity"
             android:exported="true">
@@ -54,19 +49,14 @@
             android:exported="true">
 
         </activity>
-        <activity
-            android:name=".view.MainActivity"
-            android:exported="true"></activity>
     </application>
     <uses-feature android:name="android.hardware.camera.any" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
 
 </manifest>
