@@ -53,8 +53,8 @@
             android:name=".view.history.list.HistoryListActivity"
             android:exported="true" />
         <activity
-            android:name=".view.MainActivity"
-            android:exported="true" />
+            android:name=".view.IntroActivity"
+            android:exported="true"/>
     </application>
 
     <uses-feature android:name="android.hardware.camera.any" />

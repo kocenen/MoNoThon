@@ -27,6 +27,7 @@ import com.example.monothon.util.NaverUtil
 import com.example.monothon.view.history.list.HistoryListActivity
 import com.example.monothon.view.intro.result.SunBreakActivity
 import com.example.monothon.view.intro.result.SunSafeActivity
+import com.example.monothon.view.profile.ProfileActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -80,6 +81,13 @@ class FacePictureActivity : AppCompatActivity() {
 
     private fun initClickListener() {
         with(mBinding) {
+            icProfile.setOnClickListener {
+                startActivity(Intent(this@FacePictureActivity, ProfileActivity::class.java))
+            }
+            icProfileBack.setOnClickListener {
+                startActivity(Intent(this@FacePictureActivity, ProfileActivity::class.java))
+            }
+
             historyButton.setOnClickListener {
                 startActivity(Intent(this@FacePictureActivity, HistoryListActivity::class.java))
             }
