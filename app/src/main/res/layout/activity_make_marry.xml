@@ -266,8 +266,7 @@
                     android:textColor="@color/black"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/send"
                 app:layout_constraintTop_toBottomOf="@id/cl_corona"
                 android:layout_width="match_parent"
@@ -276,10 +275,9 @@
                 android:background="@drawable/rounded_retangle_ewew"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="34dp"
-                android:text="다음"
+                android:text="완료"
                 android:textSize="16dp"
                 android:textColor="@color/white"/>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

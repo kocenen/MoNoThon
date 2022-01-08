@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.TelephonyManager
 import com.example.monothon.databinding.ActivityMakeMarryBinding
+import com.example.monothon.model.SunType
+import com.example.monothon.repository.db.RoomDB
+import com.example.monothon.repository.db.SunHistoryItem
+import java.io.File
 
 class MakeMarryActivity : AppCompatActivity() {
 
@@ -33,12 +37,13 @@ class MakeMarryActivity : AppCompatActivity() {
 
     private fun setOnClick() {
         binding.send.setOnClickListener {
+            val db = RoomDB.getInstance(applicationContext)
+            db!!.sunHistoryDao().addHistory(SunHistoryItem(SunType.WEDDING, true, "22.01.09", (intent.getSerializableExtra("imageFile") as File).path))
+
             val smsUri = Uri.parse("sms:$phoneNumber");
             val sendIntent = Intent(Intent.ACTION_SENDTO, smsUri);
             sendIntent.putExtra("sms_body", binding.tvMessage.text.toString());
             startActivity(sendIntent)
         }
     }
-
-
 }

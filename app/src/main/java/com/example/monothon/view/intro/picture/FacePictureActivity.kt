@@ -202,10 +202,10 @@ class FacePictureActivity : AppCompatActivity() {
         if(faceInfo.emotion.confidence >= 0.5) {
             Log.e("네이버_얼굴_표정_체크", "${faceInfo.emotion.value}")
             when(faceInfo.emotion.value) {
-                "angry" -> startActivity(Intent(this, SunBreakActivity::class.java))
-                "disgust" -> startActivity(Intent(this, SunBreakActivity::class.java))
-                "fear" -> startActivity(Intent(this, SunBreakActivity::class.java))
-                "sad" -> startActivity(Intent(this, SunBreakActivity::class.java))
+                "angry" -> startActivity(Intent(this, SunBreakActivity::class.java).putExtra("imageFile", imageFile))
+                "disgust" -> startActivity(Intent(this, SunBreakActivity::class.java).putExtra("imageFile", imageFile))
+                "fear" -> startActivity(Intent(this, SunBreakActivity::class.java).putExtra("imageFile", imageFile))
+                "sad" -> startActivity(Intent(this, SunBreakActivity::class.java).putExtra("imageFile", imageFile))
                 else -> {
                     startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
                 }
