@@ -1,9 +1,9 @@
 package com.example.monothon.repository.db
 
-import android.net.Uri
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.monothon.model.SunType
+import java.io.File
 
 @Entity(tableName = "sun_history_table")
 data class SunHistoryItem(
@@ -11,5 +11,6 @@ data class SunHistoryItem(
     val id: Int?,
     val sunBreakType: SunType,
     val isBreak: Boolean,
-    val image: Uri
+    val date: String,
+    val image: File
 )

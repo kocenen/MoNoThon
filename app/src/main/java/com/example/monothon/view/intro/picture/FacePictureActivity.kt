@@ -1,7 +1,6 @@
 package com.example.monothon.view.intro.picture
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -21,8 +20,11 @@ import com.example.monothon.api.NaverAPI
 import com.example.monothon.api.NaverAPIRes
 import com.example.monothon.api.model.Face
 import com.example.monothon.databinding.ActivityFacePictureBinding
-import com.example.monothon.view.history.list.HistoryListActivity
+import com.example.monothon.model.SunType
+import com.example.monothon.repository.db.RoomDB
+import com.example.monothon.repository.db.SunHistoryItem
 import com.example.monothon.util.NaverUtil
+import com.example.monothon.view.history.list.HistoryListActivity
 import com.example.monothon.view.intro.result.SunBreakActivity
 import com.example.monothon.view.intro.result.SunSafeActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -190,9 +192,13 @@ class FacePictureActivity : AppCompatActivity() {
                 "disgust" -> startActivity(Intent(this, SunBreakActivity::class.java))
                 "fear" -> startActivity(Intent(this, SunBreakActivity::class.java))
                 "sad" -> startActivity(Intent(this, SunBreakActivity::class.java))
-                else -> startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
+                else -> {
+                    RoomDB.getInstance(applicationContext)!!.sunHistoryDao().addHistory(SunHistoryItem(null, SunType.NONE, false, "22.01.09", imageFile))
+                    startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
+                }
             }
         } else {
+            RoomDB.getInstance(applicationContext)!!.sunHistoryDao().addHistory(SunHistoryItem(null, SunType.NONE, false, "22.01.09", imageFile))
             startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
         }
     }

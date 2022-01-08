@@ -1,7 +1,9 @@
 package com.example.monothon.model
 
 enum class SunType {
-    DIE,
+    NONE,
     COVID,
-    CAR
+    WEDDING,
+    CAR,
+    CALL
 }

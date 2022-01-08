@@ -6,19 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [SunHistoryItem::class], version = 1, exportSchema = false)
-abstract class RoomDatabase : RoomDatabase() {
+abstract class RoomDB : RoomDatabase() {
     abstract fun sunHistoryDao(): SunHistoryDao
 
     companion object {
-        private var instance: RoomDatabase? = null
+        private var instance: RoomDB? = null
 
         @Synchronized
-        fun getInstance(context: Context): RoomDatabase? {
+        fun getInstance(context: Context): RoomDB? {
             if (instance == null) {
-                synchronized(RoomDatabase::class){
+                synchronized(RoomDB::class){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        RoomDatabase::class.java,
+                        RoomDB::class.java,
                         "sun_database"
                     ).build()
                 }

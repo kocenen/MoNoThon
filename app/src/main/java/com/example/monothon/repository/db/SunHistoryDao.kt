@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface SunHistoryDao {
 
     @Insert
-    suspend fun addSearchHistory(placeHistoryItem: SunHistoryItem)
+    fun addHistory(sunHistoryItem: SunHistoryItem)
 
     @Query("SELECT * FROM sun_history_table")
     suspend fun getSearchHistory(): List<SunHistoryItem>
