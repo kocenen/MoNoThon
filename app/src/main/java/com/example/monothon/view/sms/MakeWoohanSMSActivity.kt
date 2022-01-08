@@ -17,6 +17,10 @@ import com.example.monothon.databinding.ActivityMakeWoohanSmsactivityBinding
 import com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE
 import androidx.core.app.ActivityCompat.requestPermissions
 import com.example.monothon.view.intro.picture.FacePictureActivity
+import com.example.monothon.model.SunType
+import com.example.monothon.repository.db.RoomDB
+import com.example.monothon.repository.db.SunHistoryItem
+import java.io.File
 
 
 class MakeWoohanSMSActivity : AppCompatActivity() {
@@ -44,6 +48,9 @@ class MakeWoohanSMSActivity : AppCompatActivity() {
 
     private fun setOnClick() {
         binding.send.setOnClickListener {
+            val db = RoomDB.getInstance(applicationContext)
+            db!!.sunHistoryDao().addHistory(SunHistoryItem(SunType.COVID, true, "22.01.09", (intent.getSerializableExtra("imageFile") as File).path))
+
             val smsUri = Uri.parse("sms:$phoneNumber");
             val sendIntent = Intent(Intent.ACTION_SENDTO, smsUri);
             sendIntent.putExtra("sms_body", binding.tvMessage.text.toString());
