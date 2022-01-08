@@ -58,4 +58,8 @@
 
     <color name="route_purple">#7200e3</color>
     <color name="route_yellow">#e6c100</color>
+
+
+    <color name="call_receive">#9FC93C</color>
+
 </resources>

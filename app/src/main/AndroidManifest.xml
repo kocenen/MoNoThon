@@ -15,7 +15,11 @@
         <activity
             android:name=".CallActivity"
             android:exported="true">
-        android:theme="@style/Theme.MonoThon" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".intro.result.FaceResultActivity"
@@ -24,11 +28,6 @@
         <activity
             android:name=".intro.picture.FacePictureActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
