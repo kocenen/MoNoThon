@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.monothon">
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,15 @@
         <activity
             android:name=".CallActivity"
             android:exported="true">
+        android:theme="@style/Theme.MonoThon" >
+
+        <activity
+            android:name=".intro.result.FaceResultActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".intro.picture.FacePictureActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +34,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
         </activity>
     </application>
 
