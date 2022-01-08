@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    tools:context=".view.sms.MakeWoohanSMSActivity">
+
+    <ScrollView
+        android:id="@+id/sv_body"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_header"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="코로나 접촉 동선 만들기"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginVertical="16dp"/>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="22dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_who"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_border_rectangle_5"
+                android:backgroundTint="#F6F7FA"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cl_header">
+                <TextView
+                    android:id="@+id/who_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="누가?"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#4D5358"/>
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/who_title"
+                    android:id="@+id/who_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이유승"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_where"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_border_rectangle_5"
+                android:backgroundTint="#F6F7FA"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cl_who">
+                <TextView
+                    android:id="@+id/tv_where_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="어디서?"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#4D5358"/>
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_where_title"
+                    android:id="@+id/where_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="프랑스 파리 에펠탑 내부 파리바게트"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gps"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_when"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_border_rectangle_5"
+                android:backgroundTint="#F6F7FA"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cl_where">
+                <TextView
+                    android:id="@+id/tv_when_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="언제?"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#4D5358"/>
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_when_title"
+                    android:id="@+id/when_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2022.1.9. 오후 12시 00분"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/when"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_border_rectangle_5"
+                android:backgroundTint="#F6F7FA"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cl_when">
+                <TextView
+                    android:id="@+id/tv_time_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="발송 시간"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#4D5358"/>
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_time_title"
+                    android:id="@+id/time_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지금 당장"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/when"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_zook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/zook"
+                app:layout_constraintTop_toBottomOf="@id/cl_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/preview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="메시지 미리보기"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/iv_zook"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_corona"
+                app:layout_constraintTop_toBottomOf="@id/preview_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:background="@drawable/rounded_border_rectangle_5"
+                android:backgroundTint="#F6F7FA"
+                android:paddingHorizontal="12dp"
+                android:layout_marginHorizontal="16dp">
+                <TextView
+                    android:id="@+id/tv_message"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="@string/corona"
+                    android:textColor="@color/black"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <Button
+                android:id="@+id/send"
+                app:layout_constraintTop_toBottomOf="@id/cl_corona"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="#F3453A"
+                android:background="@drawable/rounded_retangle_ewew"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="34dp"
+                android:text="다음"
+                android:textSize="16dp"
+                android:textColor="@color/white"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
