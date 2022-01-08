@@ -1,6 +1,7 @@
 package com.example.monothon.view.call
 
 import android.graphics.drawable.AnimationDrawable
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
@@ -15,6 +16,8 @@ import android.view.animation.AccelerateInterpolator
 
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import androidx.core.view.isVisible
+import com.example.monothon.R
 
 
 class CallActivity : AppCompatActivity() {
@@ -27,7 +30,7 @@ class CallActivity : AppCompatActivity() {
 
     private lateinit var defaultRingtoneUri : Uri
     private lateinit var defaultRingtone :Ringtone
-
+    private lateinit var mediaPlayer : MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -35,6 +38,7 @@ class CallActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+        mediaPlayer = MediaPlayer.create(this, R.raw.yuseung_grandpa);
 
 
         defaultRingtoneUri = RingtoneManager.getActualDefaultRingtoneUri(
@@ -54,10 +58,26 @@ class CallActivity : AppCompatActivity() {
 
     private fun initOnClick() {
         with(binding){
-//            clCallDecline.setOnTouchListener { view, motionEvent ->
-//
-//            }
+            clCallDecline.setOnClickListener {
+                finish()
+            }
+            clCallReceive.setOnClickListener {
+                receiveCall()
+            }
+            this.llCallEnd.setOnClickListener {
+                finish()
+            }
         }
+    }
+
+    private fun receiveCall() {
+        with(binding){
+            clCallReceive.isVisible = false
+            clCallDecline.isVisible = false
+            clAfterReceivingCall.isVisible = true
+        }
+        defaultRingtone.stop()
+        mediaPlayer.start()
     }
 
     private fun playAnimation() {
@@ -70,7 +90,6 @@ class CallActivity : AppCompatActivity() {
             start()
         }
     }
-
 
     private fun setVibrate(){
         vibrator.vibrate(vibratePattern, 0)
@@ -102,6 +121,7 @@ class CallActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         defaultRingtone.stop()
+        mediaPlayer.stop()
     }
 
     override fun onDestroy() {

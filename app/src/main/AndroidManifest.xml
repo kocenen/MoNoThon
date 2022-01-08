@@ -11,7 +11,13 @@
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
             android:name=".view.MakeCallActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.history.detail.HistoryDetailUncrossedLineActivity"
             android:exported="false" />

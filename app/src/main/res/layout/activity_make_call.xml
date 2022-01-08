@@ -18,7 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
-                android:text="코로나 접촉 동선 만들기"
+                android:text="가짜 전화 만들기"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +52,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="신랑"
+                android:text="누가?"
                 android:textSize="11dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="#4D5358"/>
@@ -84,7 +84,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="신부"
+                android:text="수신 시간"
                 android:textSize="11dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="#4D5358"/>
@@ -95,7 +95,7 @@
                 android:id="@+id/who2_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이유승"
+                android:text="2022년 1월 9일 오후 12시"
                 android:textSize="14dp"
                 android:textColor="@color/black"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -157,7 +157,7 @@
 
         <LinearLayout
             android:id="@+id/cl_button"
-            android:layout_width="106dp"
+            android:layout_width="wrap_content"
             android:layout_height="44dp"
             android:background="@drawable/rounded_retangle_ewew"
             android:backgroundTint="#FCD0CE"
@@ -171,6 +171,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
                 android:src="@drawable/play"/>
             <TextView
                 android:layout_width="wrap_content"
