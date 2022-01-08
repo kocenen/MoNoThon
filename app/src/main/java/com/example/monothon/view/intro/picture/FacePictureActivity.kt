@@ -41,6 +41,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
+
 
 class FacePictureActivity : AppCompatActivity() {
 
@@ -193,12 +199,10 @@ class FacePictureActivity : AppCompatActivity() {
                 "fear" -> startActivity(Intent(this, SunBreakActivity::class.java))
                 "sad" -> startActivity(Intent(this, SunBreakActivity::class.java))
                 else -> {
-                    RoomDB.getInstance(applicationContext)!!.sunHistoryDao().addHistory(SunHistoryItem(null, SunType.NONE, false, "22.01.09", imageFile))
                     startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
                 }
             }
         } else {
-            RoomDB.getInstance(applicationContext)!!.sunHistoryDao().addHistory(SunHistoryItem(null, SunType.NONE, false, "22.01.09", imageFile))
             startActivity(Intent(this, SunSafeActivity::class.java).putExtra("imageFile", imageFile))
         }
     }

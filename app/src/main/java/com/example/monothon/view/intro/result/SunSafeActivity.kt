@@ -6,6 +6,11 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.example.monothon.R
 import com.example.monothon.databinding.ActivitySunSafeBinding
+import com.example.monothon.model.SunType
+import com.example.monothon.repository.db.RoomDB
+import com.example.monothon.repository.db.SunHistoryItem
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import java.io.File
 
 class SunSafeActivity : AppCompatActivity() {
@@ -19,6 +24,7 @@ class SunSafeActivity : AppCompatActivity() {
         initBinding()
         initClickListener()
         initImage(intent.getSerializableExtra("imageFile") as File)
+        initData()
     }
 
     private fun initBinding() {
@@ -42,5 +48,10 @@ class SunSafeActivity : AppCompatActivity() {
         Glide.with(this)
             .load(file)
             .into(mBinding.imageFile)
+    }
+
+    private fun initData() {
+        val db = RoomDB.getInstance(applicationContext)
+        db!!.sunHistoryDao().addHistory(SunHistoryItem(SunType.NONE, false, "22.01.09", (intent.getSerializableExtra("imageFile") as File).path))
     }
 }
