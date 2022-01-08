@@ -58,7 +58,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="누가?"
+                    android:text="신랑"
                     android:textSize="11dp"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="#4D5358"/>
@@ -67,6 +67,38 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/who_title"
                     android:id="@+id/who_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이유승"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_who2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_border_rectangle_5"
+                android:backgroundTint="#F6F7FA"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cl_who">
+                <TextView
+                    android:id="@+id/who2_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신부"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#4D5358"/>
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/who2_title"
+                    android:id="@+id/who2_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="이유승"
@@ -84,7 +116,7 @@
                 android:backgroundTint="#F6F7FA"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@id/cl_who">
+                app:layout_constraintTop_toBottomOf="@id/cl_who2">
                 <TextView
                     android:id="@+id/tv_where_title"
                     app:layout_constraintTop_toTopOf="parent"
@@ -230,12 +262,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="@string/corona"
+                    android:text="@string/marry"
                     android:textColor="@color/black"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/send"
                 app:layout_constraintTop_toBottomOf="@id/cl_corona"
                 android:layout_width="match_parent"
