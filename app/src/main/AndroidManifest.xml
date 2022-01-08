@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.monothon">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,26 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
-            android:name=".view.sms.MakeWoohanSMSActivity"
-        android:theme="@style/Theme.MonoThon">
+            android:name=".view.MakeCallActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity
-            android:name=".view.call.CallActivity"
-            android:exported="true"/>
-
-        <activity
-            android:name="com.example.monothon.view.intro.result.SunSafeActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="com.example.monothon.view.intro.result.SunBreakActivity"
-            android:exported="true" >
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
-            android:name="com.example.monothon.view.intro.picture.FacePictureActivity"
-            android:exported="true" >
+            android:name=".view.history.detail.HistoryDetailUncrossedLineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.history.detail.HistoryDetailCrossedLineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.sms.MakeMarryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.sms.MakeWoohanSMSActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MonoThon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,35 +39,32 @@
         </activity>
         <activity
             android:name=".view.call.CallActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
-            android:name=".view.intro.result.FaceResultActivity"
+            android:name=".view.intro.result.SunSafeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.intro.result.SunBreakActivity"
             android:exported="true" />
         <activity
             android:name=".view.intro.picture.FacePictureActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.history.list.HistoryListActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".view.MainActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".view.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
+
     <uses-feature android:name="android.hardware.camera.any" />
-
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 </manifest>
