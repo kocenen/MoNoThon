@@ -7,4 +7,50 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="kawai_blue">#25AAFF</color>
+
+    <color name="color_bar">#777777</color>
+
+    <color name="color_f5ffff">#f5ffff</color>
+    <color name="color_008859">#008859</color>
+    <color name="color_cdcdcd">#cdcdcd</color>
+    <color name="color_e3e3e3">#e3e3e3</color>
+    <color name="color_ff0000">#ff0000</color>
+    <color name="color_ff1f00">#ff1f00</color>
+    <color name="color_919191">#919191</color>
+    <color name="color_383838">#383838</color>
+    <color name="color_c8c8c8">#c8c8c8</color>
+    <color name="color_ff2e00">#ff2e00</color>
+    <color name="color_e2e2e2">#e2e2e2</color>
+    <color name="color_8e8e8e">#8e8e8e</color>
+    <color name="color_e9e9e9">#e9e9e9</color>
+    <color name="color_cfcfcf">#cfcfcf</color>
+    <color name="color_f6f6f6">#f6f6f6</color>
+    <color name="color_eaeaea">#eaeaea</color>
+    <color name="color_a1a1a1">#a1a1a1</color>
+    <color name="color_d8d8d8">#d8d8d8</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="color_ebebeb">#ebebeb</color>
+
+    <color name="color_4578fc">#4578fc</color>
+    <color name="color_b6b6b6">#b6b6b6</color>
+    <color name="color_bababa">#bababa</color>
+
+    <color name="color_1c3880">#1c3880</color>
+
+    <color name="color_797979">#797979</color>
+    <color name="color_979797">#979797</color>
+
+    <!-- Route Color -->
+    <color name="route_red">#fc6f6f</color>
+    <color name="route_green">#008859</color> <!-- 00c380 -->
+    <color name="route_blue">#6f98fc</color>
+
+    <color name="bus_line">#1c3880</color>
+    <color name="other_line">#008859</color>
+
+    <color name="route_purple">#7200e3</color>
+    <color name="route_yellow">#e6c100</color>
 </resources>
