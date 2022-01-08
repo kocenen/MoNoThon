@@ -21,10 +21,16 @@ class HistoryListActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityHistoryListBinding
 
     private val adapter = HistoryListAdapter {
-        Toast.makeText(this, "이용 내역 정보: $it", Toast.LENGTH_SHORT).show()
+        Log.e("sldfjalsdfjsaf", "$it")
         when(it.isBreak) {
-            true -> startActivity(Intent(this, HistoryDetailCrossedLineActivity::class.java))
-            false -> startActivity(Intent(this, HistoryDetailUncrossedLineActivity::class.java))
+            true -> startActivity(
+                Intent(this, HistoryDetailCrossedLineActivity::class.java)
+                    .putExtra("imageUrl", it.image)
+            )
+            false -> startActivity(
+                Intent(this, HistoryDetailUncrossedLineActivity::class.java)
+                    .putExtra("imageUrl", it.image)
+            )
         }
     }
 

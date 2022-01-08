@@ -12,7 +12,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="66dp"
-    android:paddingHorizontal="16dp"
     android:layout_marginBottom="10dp"
     android:background="@drawable/rounded_border_rectangle_gray_15_unselect">
 
@@ -38,6 +37,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
             android:orientation="horizontal">
 
             <TextView
