@@ -7,6 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_transparent">#00000000</color>
+
+    <color name="colorGradientStart">#D9FF43</color>
+    <color name="colorGradientCenter">#F67831</color>
+    <color name="colorGradientEnd">#FF1493</color>
     <color name="kawai_blue">#25AAFF</color>
 
     <color name="color_bar">#777777</color>
@@ -53,4 +58,8 @@
 
     <color name="route_purple">#7200e3</color>
     <color name="route_yellow">#e6c100</color>
+
+
+    <color name="call_receive">#9FC93C</color>
+
 </resources>
