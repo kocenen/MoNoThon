@@ -97,14 +97,14 @@
             tools:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/color_afterReceivingCall">
+            android:background="@color/transparent">
 
             <LinearLayout
                 android:id="@+id/gl_menus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_retangle"
-                android:backgroundTint="@color/color_afterReceiving_menu"
+                android:backgroundTint="@color/transparent"
                 android:orientation="vertical"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="30dp"
