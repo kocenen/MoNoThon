@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/call_background"
+    tools:context=".CallActivity">
+
+    <TextView
+        android:id="@+id/tv_call_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="누구게"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        android:layout_marginTop="125dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="010-0000-0000"
+        android:fontFamily="@font/pretendard_semi_bold"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/tv_call_person"
+        app:layout_constraintStart_toStartOf="@id/tv_call_person"
+        app:layout_constraintTop_toBottomOf="@id/tv_call_person"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
