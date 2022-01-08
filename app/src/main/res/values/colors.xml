@@ -56,10 +56,13 @@
     <color name="bus_line">#1c3880</color>
     <color name="other_line">#008859</color>
 
+    <color name="color_4D5358">#4D5358</color>
+
     <color name="route_purple">#7200e3</color>
     <color name="route_yellow">#e6c100</color>
 
-
     <color name="call_receive">#9FC93C</color>
+
+    <color name="color_F6F7FA">#F6F7FA</color>
 
 </resources>

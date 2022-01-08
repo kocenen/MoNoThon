@@ -1,5 +1,6 @@
 package com.example.monothon.intro.picture
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -17,6 +18,7 @@ import com.example.monothon.R
 import com.example.monothon.api.NaverAPI
 import com.example.monothon.api.NaverAPIRes
 import com.example.monothon.databinding.ActivityFacePictureBinding
+import com.example.monothon.history.HistoryListActivity
 import com.example.monothon.util.NaverUtil
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -64,13 +66,21 @@ class FacePictureActivity : AppCompatActivity() {
     }
 
     private fun initClickListener() {
-        mBinding.cameraCaptureButton.setOnClickListener {
-//            takePhoto()
-            Toast.makeText(this, "123wfsdfsdf", Toast.LENGTH_SHORT).show()
-        }
-        mBinding.cameraCaptureButton2.setOnClickListener {
-//            takePhoto()
-            Toast.makeText(this, "123wfsdfsdf", Toast.LENGTH_SHORT).show()
+        with(mBinding) {
+            historyButton.setOnClickListener {
+                startActivity(Intent(this@FacePictureActivity, HistoryListActivity::class.java))
+            }
+
+            historyButton2.setOnClickListener {
+                startActivity(Intent(this@FacePictureActivity, HistoryListActivity::class.java))
+            }
+
+            cameraCaptureButton.setOnClickListener {
+                takePhoto()
+            }
+            cameraCaptureButton2.setOnClickListener {
+                takePhoto()
+            }
         }
     }
 
@@ -85,7 +95,7 @@ class FacePictureActivity : AppCompatActivity() {
                 }
             imageCapture = ImageCapture.Builder().build()
 
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
             try {
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
@@ -109,8 +119,8 @@ class FacePictureActivity : AppCompatActivity() {
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val fileBody = RequestBody.create("image/jpg".toMediaTypeOrNull(), photoFile)
-                    val filePart = MultipartBody.Part.createFormData("file", photoFile.name + ".jpg", fileBody)
-                    checkUserFace(filePart)
+                    val filePart = MultipartBody.Part.createFormData("image", photoFile.name + ".jpg", fileBody)
+                    getUserFaceInfo(filePart)
                 }
             }
         )
@@ -131,9 +141,9 @@ class FacePictureActivity : AppCompatActivity() {
         return file
     }
 
-    private fun checkUserFace(imageFile: MultipartBody.Part) {
+    private fun getUserFaceInfo(imageFile: MultipartBody.Part) {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://openapi.naver.com/v1/vision/face")
+            .baseUrl("https://openapi.naver.com/v1/vision/face/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -142,12 +152,20 @@ class FacePictureActivity : AppCompatActivity() {
         server.naverCheckFace(NaverUtil.naverClientId, NaverUtil.naverClientSecret, imageFile).enqueue(object : Callback<NaverAPIRes> {
                 override fun onFailure(call: Call<NaverAPIRes>?, t: Throwable?) {
                     Toast.makeText(applicationContext, "얼굴_체크_실패", Toast.LENGTH_SHORT).show()
+                    Log.e("네이버_얼굴_체크_실패실패: ", "$t")
                 }
 
                 override fun onResponse(call: Call<NaverAPIRes>?, response: Response<NaverAPIRes>?) {
-                    Log.e("네이버_얼굴_체크_데이터: ", "$response")
+                    val resultBody = response?.body()
+
+                    Log.e("네이버_얼굴_체크_데이터_성공성공+info: ", "${resultBody?.info}")
+                    Log.e("네이버_얼굴_체크_데이터_성공성공+faces: ", "${resultBody?.faces}")
                 }
             }
         )
+    }
+
+    private fun checkUserFace() {
+
     }
 }

@@ -14,6 +14,6 @@ interface NaverAPI {
     fun naverCheckFace(
         @Header("X-Naver-Client-Id") id: String?,
         @Header("X-Naver-Client-Secret") secret: String?,
-        @Part file: MultipartBody.Part?
+        @Part image: MultipartBody.Part?
     ): Call<NaverAPIRes>
 }
