@@ -63,7 +63,7 @@
                 android:id="@+id/who_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이유승"
+                android:text="이민혁"
                 android:textSize="14dp"
                 android:textColor="@color/black"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -127,7 +127,7 @@
                 android:id="@+id/where_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="유승아 할아버지다.허리 부셔졌는데 병문안 안오냐.\n이 할비는 서운하다."
+                android:text="민혁아 할아버지다.허리 부셔졌는데 병문안 안오냐.\n이 할비는 서운하다."
                 android:textSize="14dp"
                 android:textColor="@color/black"/>
         </androidx.constraintlayout.widget.ConstraintLayout>

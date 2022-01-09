@@ -59,6 +59,8 @@ class FacePictureActivity : AppCompatActivity() {
     private lateinit var imageFile: File
     private lateinit var cameraExecutor: ExecutorService
 
+    private var cameraWay = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_face_picture)
@@ -103,6 +105,16 @@ class FacePictureActivity : AppCompatActivity() {
                 mBinding.progressCamera.isVisible = true
                 takePhoto()
             }
+
+            btnCameraTransform.setOnClickListener {
+                if(cameraWay) {
+                    startCamera2()
+                    cameraWay = false
+                } else {
+                    startCamera()
+                    cameraWay = true
+                }
+            }
         }
     }
 
@@ -118,6 +130,27 @@ class FacePictureActivity : AppCompatActivity() {
             imageCapture = ImageCapture.Builder().build()
 
             val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
+            } catch(exc: Exception) {
+                Log.d("CameraX-Debug", "Use case mBinding failed", exc)
+            }
+        }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun startCamera2() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+        cameraProviderFuture.addListener({
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            preview = Preview.Builder()
+                .build()
+                .also { preview ->
+                    preview.setSurfaceProvider(mBinding.viewFinder.surfaceProvider)
+                }
+            imageCapture = ImageCapture.Builder().build()
+
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             try {
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
