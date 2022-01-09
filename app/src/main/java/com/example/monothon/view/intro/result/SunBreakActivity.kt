@@ -88,20 +88,20 @@ class SunBreakActivity : AppCompatActivity() {
             nextBtn.setOnClickListener {
                 if(selectReason != -1) {
                     when(selectReason) {
-                        1 -> startActivity(Intent(this@SunBreakActivity, MakeWoohanSMSActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
-                        2 -> startActivity(Intent(this@SunBreakActivity, MakeMarryActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
-                        3 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
-                        4 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
+                        1 -> startActivity(Intent(this@SunBreakActivity, MakeWoohanSMSActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
+                        2 -> startActivity(Intent(this@SunBreakActivity, MakeMarryActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
+                        3 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
+                        4 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
                     }
                 }
             }
             nextBtnText.setOnClickListener {
                 if(selectReason != -1) {
                     when(selectReason) {
-                        1 -> startActivity(Intent(this@SunBreakActivity, MakeWoohanSMSActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
-                        2 -> startActivity(Intent(this@SunBreakActivity, MakeMarryActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
-                        3 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
-                        4 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getStringExtra("imageFile")))
+                        1 -> startActivity(Intent(this@SunBreakActivity, MakeWoohanSMSActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
+                        2 -> startActivity(Intent(this@SunBreakActivity, MakeMarryActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
+                        3 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
+                        4 -> startActivity(Intent(this@SunBreakActivity, MakeCallActivity::class.java).putExtra("imageFile", intent.getSerializableExtra("imageFile")))
                     }
                 }
             }

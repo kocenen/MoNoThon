@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:textSize="21dp"
         android:fontFamily="@font/pretendard_semi_bold"
-        android:text="이유승"
+        android:text="이민혁"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/cl_header"
         app:layout_constraintStart_toEndOf="@id/iv_profile"
