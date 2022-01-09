@@ -7,9 +7,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_call_body"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="@drawable/background_list_damn"
-        tools:context=".view.call.CallActivity">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tv_title"
@@ -36,7 +35,6 @@
             app:layout_constraintBottom_toBottomOf="@id/cl_call_receive"
             android:alpha="0"/>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_call_receive"
             android:layout_width="60dp"
@@ -59,7 +57,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+      
         <View
             android:id="@+id/cl_decline_alpha"
             android:layout_width="120dp"
@@ -305,8 +303,6 @@
             app:layout_constraintEnd_toEndOf="@id/tv_call_person"
             app:layout_constraintStart_toStartOf="@id/tv_call_person"
             app:layout_constraintTop_toBottomOf="@id/tv_call_person"/>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -60,7 +60,6 @@
                     android:imeOptions="flagNoExtractUi|flagNoFullscreen|flagNoAccessoryAction"
                     android:inputType="text"
                     android:privateImeOptions="nm" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
